@@ -13,7 +13,8 @@ BOT_NAME = 'buscabanco'
 
 SPIDER_MODULES = ['buscabanco.spiders']
 NEWSPIDER_MODULE = 'buscabanco.spiders'
-
+# COOKIES_ENABLED = True
+# COOKIES_DEBUG = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'buscabanco (+http://www.yourdomain.com)'
@@ -39,10 +40,19 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+DEFAULT_REQUEST_HEADERS = {
+  'Connection': 'keep-alive',
+  'Pragma': 'no-cache',
+  'Cache-Control': 'no-cache',
+  'Accept': '*/*',
+  'Origin': 'http://www.buscabanco.org.br',
+  'X-Requested-With': 'XMLHttpRequest',
+  'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+  'Referer': 'http://www.buscabanco.org.br/',
+  'Accept-Encoding': 'gzip, deflate',
+  'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,af;q=0.6,sq;q=0.5'
+}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
