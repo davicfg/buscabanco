@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests
+import json
 from scrapy import *
 
 class BancosSpider(Spider):
@@ -19,7 +19,13 @@ class BancosSpider(Spider):
                         formdata = {'__RequestVerificationToken': token, 'uf' : estado},
                         callback=self.get_cidade)
   def get_cidade(self, response):
-    print(response.body)
+    print(response.request)
+    cidades = json.loads(response.body)
+    for cidade in cidades:
+        print(cidade["Municipio"])
+
+  def get_agencias(self, response):
+    
 
   def to_str(self, element):
     return element.extract()[0].encode("utf-8")
